@@ -1,4 +1,5 @@
-# ESP AccuClock
+# AccuClock-ESP
+
 Atomic time accuracy for your wall clock.
 
 Many of modern devices use a special signal for their time keeping. The signal comes from a small component, called *crystal oscillator*, which is vibrating at a very high rate - in a perfect world, it should be exactly 32768 times a second. 
