@@ -23,6 +23,9 @@ This project aims to create a more stable replacement for the resonating crystal
     2442 ccl = 32760 Hz
     ```
   * Our aim is not to have the exact frequency at all times, but to provide a signal which, on average, has the same number of cycles over a longer period of time.
+  * The internal timekeeping should be based solely on CPU clock. I cannot find clear information whether ESP uses additional RTC clock, or bases its `time` library on CPU clock. My first implementation shows drift that is significant, regular, but too small to be related to waveform generation. 
+
+    Hints: [1](https://www.esp8266.com/viewtopic.php?p=10180)
 * For the best accuracy, use NTP library with millisecond sync ablility. [ESPNtpClient](https://github.com/gmag11/ESPNtpClient)
 * Adjusting the clock after sync is done by slightly slowing down/speeding up the frequency over some period (30s)
 * To save power, disable WiFi radio after sync - need to further investigate the behavior of ESPNtpClient.
