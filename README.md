@@ -30,5 +30,7 @@ This project aims to create a more stable replacement for the resonating crystal
 * Adjusting the clock after sync is done by slightly slowing down/speeding up the frequency over some period (30s)
 * To save power, disable WiFi radio after sync - need to further investigate the behavior of ESPNtpClient.
 * Create a test program for second ESP, which will be used for measuring the stability.
+
+There is a similar project for analog clocks - [ESP8266-WiFi-Analog-Clock](https://github.com/jim11662418/ESP8266-WiFi-Analog-Clock). The program skips the oscillator part by completely replacing the electronics inside clock - manually controls the movement of second hand.
   
 
