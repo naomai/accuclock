@@ -23,9 +23,11 @@ This project aims to create a more stable replacement for the resonating crystal
     2442 ccl = 32760 Hz
     ```
   * Our aim is not to have the exact frequency at all times, but to provide a signal which, on average, has the same number of cycles over a longer period of time.
-  * The internal timekeeping should be based solely on CPU clock. I cannot find clear information whether ESP uses additional RTC clock, or bases its `time` library on CPU clock. My first implementation shows drift that is significant, regular, but too small to be related to waveform generation. 
-
-    Hints: [1](https://www.esp8266.com/viewtopic.php?p=10180)
+  * The internal timekeeping should be based solely on CPU clock. ~~I cannot find clear information whether ESP uses additional RTC clock, or bases its `time` library on CPU clock.~~ My first implementation shows drift that is significant, regular, but too small to be related to waveform generation.
+  [Post suggesting that the RTC is emulated](https://www.esp8266.com/viewtopic.php?p=10180)
+    * My tests show that timekeeping on ESP is in fact tied to the main clock, as there is no noticeable deviation between CCOUNT and system_get_time() on the long run.
+    [My test function](https://gist.github.com/naomai/c6b7b8c9e3b7b3faf1c17dee4658644f)
+    
 * For the best accuracy, use NTP library with millisecond sync ablility. [ESPNtpClient](https://github.com/gmag11/ESPNtpClient)
   * platformio toolchain 4.2.1 causes crashes during hostname lookup, `platform = espressif8266@4.0.1` seems to work
 * Adjusting the clock after sync is done by slightly slowing down/speeding up the frequency over some period (30s)
