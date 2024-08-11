@@ -27,6 +27,7 @@ This project aims to create a more stable replacement for the resonating crystal
 
     Hints: [1](https://www.esp8266.com/viewtopic.php?p=10180)
 * For the best accuracy, use NTP library with millisecond sync ablility. [ESPNtpClient](https://github.com/gmag11/ESPNtpClient)
+  * platformio toolchain 4.2.1 causes crashes during hostname lookup, `platform = espressif8266@4.0.1` seems to work
 * Adjusting the clock after sync is done by slightly slowing down/speeding up the frequency over some period (30s)
 * To save power, disable WiFi radio after sync - need to further investigate the behavior of ESPNtpClient.
 * Create a test program for second ESP, which will be used for measuring the stability.
