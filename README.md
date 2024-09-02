@@ -36,7 +36,8 @@ This project aims to create a more stable replacement for the resonating crystal
 * Adjusting the time after sync is done by slightly slowing down/speeding up the wave frequency over some time span (30s). *The watch should never stop, or get into hyperspeed. In fact, time sync should not even be noticeable by the user.*
 * Should we also implement adjusting for daylight saving time?
 * To save power, disable WiFi radio after sync - need to further investigate the behavior of ESPNtpClient.
-* Create a test program for second ESP, which will be used for measuring the stability.
+* Create a test equipment to measure stability of DUT.
+  * I will be using ESP32, with built in PCNT hardware pulse counter - minimal coding, and reliable counting of wave periods.
 
 There is a similar project for analog clocks - [ESP8266-WiFi-Analog-Clock](https://github.com/jim11662418/ESP8266-WiFi-Analog-Clock). The program skips the oscillator part by completely replacing the electronics inside clock - manually controls the movement of second hand.
   
