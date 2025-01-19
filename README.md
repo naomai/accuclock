@@ -21,7 +21,7 @@ This project aims to create a more stable replacement for the resonating crystal
     80000000/32768 = 2441.40625 cpu cycles per one wave period
     ```
     Problem: In computing world, we can't do things in the middle of CPU cycle.
-  * We should dynamically switch between two closest "*imperfect*" freqencies, while keeping track how much we're ahead/behind.
+  * We should dynamically switch between two closest "*imperfect*" frequencies, while keeping track how much we're ahead/behind.
     ```
     2441 ccl = 32773 Hz
     2442 ccl = 32760 Hz
@@ -40,6 +40,7 @@ This project aims to create a more stable replacement for the resonating crystal
   * platformio toolchain 4.2.1 causes crashes during hostname lookup, `platform = espressif8266@4.0.1` seems to work
 * Adjusting the time after sync is done by slightly slowing down/speeding up the wave frequency over some time span (30s). *The watch should never stop, or get into hyperspeed. In fact, time sync should not even be noticeable by the user.*
 * Should we also implement adjusting for daylight saving time?
+  * This would require over/underclocking the clock for longer period of time. For example, at 3 AM, speeding it up 2x for an hour, or slowing it down 0.5x for two hours.
 * To save power, disable WiFi radio after sync - need to further investigate the behavior of ESPNtpClient.
 * Create a test equipment to measure stability of DUT.
   * I will be using ESP32, with built in PCNT hardware pulse counter - minimal coding, and reliable counting of wave periods.
